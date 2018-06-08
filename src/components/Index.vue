@@ -2,23 +2,23 @@
   <div class="content pure-u-1 pure-u-md-3-4">
     <!-- A wrapper for all the blog posts -->
     <div class="posts">
-      <section class="post">
+      <section class="post" v-for="(item, index) in articles" :key="index">
         <header class="post-header">
           <h2 class="post-title">
-            <a href="/article/6">明月几时有？</a>
+            <a href="/article/6">{{item.fields.blog_article_title}}</a>
           </h2>
           <p class="post-meta">
             发布时间:
-            <span> June 1, 2018, 6:15 a.m. </span>
+            <span>{{item.fields.blog_article_publish_time}}</span>
             浏览次数:
-            <span> 5 </span>
+            <span>{{item.fields.blog_article_agree_count}}</span>
             点赞次数:
-            <span> 0 </span>
+            <span>{{item.fields.blog_article_click_count}}</span>
           </p>
         </header>
         <div class="post-description">
           <p>
-            明月几时有，把酒问青天。不知天上宫阙，今夕是何年？我欲乘风归去，又恐琼楼玉宇，高处不胜寒。起舞弄清影，何似在人间？ 转朱阁，低绮户，照无眠。不应有恨，何事长向别时圆？人有悲欢离合，月有阴晴圆缺...
+            {{item.fields.blog_article_content}}
             <a style="font-weight: inherit" href="/article/6">
               Read More
             </a>
@@ -30,10 +30,23 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
+      headTitle: '',
+      userDesc: '',
+      userName: '',
+      articles: []
     }
+  },
+  created () {
+    axios.get('/articleApi').then(({data}) => {
+      this.headTitle = data.head_title
+      this.userDesc = data.user_desc
+      this.userName = data.user_name
+      this.articles = data.articles
+    })
   }
 }
 </script>
