@@ -11,14 +11,14 @@
             发布时间:
             <span>{{item.fields.blog_article_publish_time}}</span>
             浏览次数:
-            <span>{{item.fields.blog_article_agree_count}}</span>
-            点赞次数:
             <span>{{item.fields.blog_article_click_count}}</span>
+            点赞次数:
+            <span>{{item.fields.blog_article_agree_count}}</span>
           </p>
         </header>
         <div class="post-description">
           <p>
-            {{item.fields.blog_article_content}}
+            {{item.fields.blog_article_content.substr(0, 150)}}
             <a style="font-weight: inherit" href="/article/6">
               Read More
             </a>
