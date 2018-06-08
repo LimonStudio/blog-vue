@@ -22,14 +22,24 @@
             <a class="pure-button" href="/friendlinks/">友链</a>
           </li>
           <br>
-          <form method="get" action="/search/" class="pure-form">
-            <input type="search" placeholder="搜索">
+          <form method="get" action="/search/" style="margin-top: 1em;" class="pure-form">
+            <input type="search" style="color: #3d4f5d; margin-left: 15%; margin-right: 15%; width: 70%" placeholder="搜索">
           </form>
         </ul>
       </nav>
     </div>
   </div>
 </template>
+
+<script>
+import '@/common/css/pure-min.css'
+import '@/common/css/monokai.css'
+import '@/common/css/grids-responsive-min.css'
+import '@/common/css/blog.css'
+export default {
+
+}
+</script>
 
 <style scoped>
 
